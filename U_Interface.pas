@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, View.Pessoa;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, View.Pessoa,
+  View.Pessoa.Interfaces, View.PessoaJuridica;
 
 type
   TFrmInterface = class(TForm)
@@ -13,6 +14,8 @@ type
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
+
+    FPessoa: iPessoa;
   public
     { Public declarations }
   end;
@@ -22,28 +25,20 @@ var
 
 implementation
 
-uses
-  View.Pessoa.Interfaces;
-
 {$R *.dfm}
 
 procedure TFrmInterface.btn1Click(Sender: TObject);
-var
-  vPessoa: iPessoa;
 begin
-  vPessoa := TPessoa.Create as iPessoa;
-
-  vPessoa.Nome('Teste');
-
-  if vpessoa.ValidarNome then
-    ShowMessage('OK')
+  if not(FPessoa.Nome('Raf').ValidarNome) then
+    ShowMessage('Erro')
   else
-    ShowMessage('Erro');
+    ShowMessage('Ok');
 end;
 
 procedure TFrmInterface.FormCreate(Sender: TObject);
 begin
   ReportMemoryLeaksOnShutdown := True;
+  FPessoa := TPessoaJuridica.New;
 end;
 
 end.

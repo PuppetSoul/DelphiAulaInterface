@@ -2,8 +2,8 @@ object FrmInterface: TFrmInterface
   Left = 0
   Top = 0
   Caption = 'FrmInterface'
-  ClientHeight = 299
-  ClientWidth = 635
+  ClientHeight = 105
+  ClientWidth = 234
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,8 +15,8 @@ object FrmInterface: TFrmInterface
   PixelsPerInch = 96
   TextHeight = 13
   object btn1: TButton
-    Left = 280
-    Top = 120
+    Left = 72
+    Top = 40
     Width = 75
     Height = 25
     Caption = 'btn1'

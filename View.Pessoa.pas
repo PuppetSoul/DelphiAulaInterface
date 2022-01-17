@@ -12,6 +12,7 @@ type
     public
       constructor Create;
       destructor Destroy; override;
+      class function New: iPessoa;
       function Nome(aValue: String): iPessoa;
       function ValidarNome: Boolean;
   end;
@@ -29,6 +30,11 @@ destructor TPessoa.Destroy;
 begin
 
   inherited;
+end;
+
+class function TPessoa.New: iPessoa;
+begin
+  Result := Self.Create;
 end;
 
 function TPessoa.Nome(aValue: String): iPessoa;
